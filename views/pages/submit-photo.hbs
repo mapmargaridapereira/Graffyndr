@@ -1,0 +1,11 @@
+<h2>Submit a Photo</h2>
+
+<form action="/photos/submit" method="post">
+    <label>Title:<input type="text" name="title"/></label>
+    <label>Author:<input type="text" name="author"/></label>
+    <label>Description:<textarea name="description" cols="30" rows="4"></textarea></label>
+    <label>Location:<input type="text" name="location"/></label>
+    <label>Rate:<input type="number" name="rating" min="1" max="5"></label>
+    <label>Image:<input type="file" name="art-photo-image"/></label>
+    <button type="submit">Submit</button>
+</form>
