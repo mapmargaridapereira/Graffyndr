@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 const Photo = require("../models/Photo.model");
@@ -7,95 +7,119 @@ const fileUploader = require("../config/cloudinary.config");
 
 //Submit new photo to the DB
 // GET route to display the form for submission
-router.get('/photos/submit', (req,res)=>{
-    res.render('pages/submit-photo.hbs');
+router.get("/photos/submit", (req, res) => {
+  res.render("pages/submit-photo.hbs");
 });
 
 // POST route to save a new photo to the database in the photos collection
-router.post('/photos/submit', fileUploader.single("imageUrl"), (req,res)=>{
+router.post("/photos/submit", fileUploader.single("imageUrl"), (req, res) => {
+  const { title, author, description, location } = req.body;
 
-   const {title, author, description, location} = req.body;
-
-/*    if (req.file) {
+  /*    if (req.file) {
     imageUrl= req.file.path
    } */
 
-   async function submitPhotoToDb(){
-    try{
-        // Submiting the photo to DB
-        let submittedPhoto = await Photo.create({title, author, description, location, imageUrl: req.file.path});
-        //Checking if Photo was submitted
-        console.log(`New photo submitted: ${submittedPhoto.title} `);
-        res.redirect('/gallery');
+  async function submitPhotoToDb() {
+    try {
+      // Submiting the photo to DB
+      let submittedPhoto = await Photo.create({
+        title,
+        author,
+        description,
+        location,
+        imageUrl: req.file.path,
+      });
+      //Checking if Photo was submitted
+      console.log(`New photo submitted: ${submittedPhoto.title} `);
+      res.redirect("/gallery");
+    } catch (error) {
+      console.log(error);
     }
-    catch(error){
-        console.log(error);
-    }
-   }
+  }
 
-   submitPhotoToDb();
+  submitPhotoToDb();
 });
 
 // GET route to retrieve and display all the photos
-router.get('/gallery', (req,res)=>{
-    async function findAllPhotosFromDb(){
-      try{
-          // Find all the photos inside the collection 
-          let allPhotosFromDb = await Photo.find();
-  
-         //Check if photos are being retrieved
-        console.log('Retrieved photos from DB:', allPhotosFromDb);
-  
-        //Render the photos in the DB to view
-          res.render('pages/gallery.hbs', {gallery: allPhotosFromDb});
-      }
-      catch(error){
-          console.log(error);
-      }
+router.get("/gallery", (req, res) => {
+  async function findAllPhotosFromDb() {
+    try {
+      // Find all the photos inside the collection
+      let allPhotosFromDb = await Photo.find();
+
+      //Check if photos are being retrieved
+      console.log("Retrieved photos from DB:", allPhotosFromDb);
+
+      //Render the photos in the DB to view
+      res.render("pages/gallery.hbs", { gallery: allPhotosFromDb });
+    } catch (error) {
+      console.log(error);
     }
-    findAllPhotosFromDb();
+  }
+  findAllPhotosFromDb();
 });
 
-// GET Route to Display a Form 
-router.get('/photos/:id/edit', (req,res)=>{
-    const {id} = req.params;
+////// display DETAILS of a specific Photo
+router.get("/gallery/:photoId", (req, res) => {
+  const { photoId } = req.params;
 
-    async function getEditedPhoto(){
-        try{
-            let foundPhoto = await Photo.findById(id);
-            res.render('pages/edit-photo', foundPhoto);
-        }
-        catch(error){
-            console.log(error);
-        }
+  async function findPhotoFromDb() {
+    try {
+      let foundPhoto = await Photo.findById(photoId);
+      res.render("pages/photo-details.hbs", { photo: foundPhoto });
+    } catch (error) {
+      console.log(error);
     }
+  }
+  findPhotoFromDb();
+});
 
-    getEditedPhoto();
+////// GET Route to Display a Form To EDIT
+router.get("/gallery/:id/edit", (req, res) => {
+  const { id } = req.params;
+
+  async function getEditedPhoto() {
+    try {
+      let foundPhoto = await Photo.findById(id);
+      res.render("pages/edit-photo.hbs", foundPhoto);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getEditedPhoto();
 });
 
 // POST Route to save the updated data
-router.post('/photos/:id/edit', fileUploader.single('imageUrl'), (req,res) =>{
-    const {id} = req.params; 
+router.post(
+  "/gallery/:id/edit",
+  fileUploader.single("gallery-image"),
+  (req, res) => {
+    const { id } = req.params;
 
-    const {title, description, existingImage} = req.body;
+    const { title, author, description, location, existingImage } = req.body;
 
-    let imageUrl; 
-    if(req.file){
-        imageUrl = req.file.path;
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
     } else {
-        imageUrl = existingImage;
+      imageUrl = existingImage;
     }
 
-    async function findPhotosAndUpdate(){
-        try{
-            let foundPhoto = await Photo.findByIdAndUpdate(id, {title, description, imageUrl}, {new: true});
-            res.redirect('/gallery');
-        }
-        catch(error){
-            console.log(error);
-        }
+    async function findPhotosAndUpdate() {
+      try {
+        let foundPhoto = await Photo.findByIdAndUpdate(
+          id,
+          { title, author, description, location, imageUrl },
+          { new: true }
+        );
+        res.redirect("/gallery");
+      } catch (error) {
+        console.log(error);
+      }
     }
     findPhotosAndUpdate();
-})
+  }
+);
 
 module.exports = router;

@@ -1,0 +1,41 @@
+<img src="{{photo.imageUrl}}" alt="{{photo.title}}">
+    <h3>{{photo.title}}</h3>
+    <p>By: {{photo.author}}</p><br>
+    <p>Description: {{photo.description}}</p><br>
+    <p>Location: {{photo.location}}</p><br>
+
+<!-- title: author: description: location: rating: review:  imageUrl: -->
+
+<a href="/gallery">Back</a>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- Review Section -->
+<h4>Leave a Review!</h4>
+<!-- Form to Create a Review -->
+<form action="/review/create/{{book._id}}" method="post">
+    <select name="author">
+        {{#each users}}
+            <option value="{{_id}}">{{username}}</option>
+        {{/each}}
+    </select>
+    <label for="content">Content</label>
+    <textarea name="content" id="content" cols="30" rows="5"></textarea>
+    <button type="submit">Create the review</button>
+</form>
+<!-- End of the Form to Create a Review -->
+
+<br>
+
+<!-- Display all the Reviews of the Book that we're seeing -->
+    {{#each book.reviews}}
+    <div>
+        <!-- Actually displaying the review -->
+        <p><span>By {{author.username}}</span>: {{content}}</p>
+        <!-- Deleting the Review -->
+        <form action="/review/delete/{{_id}}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+    {{/each}}
+
+<a href="/books">Back</a>

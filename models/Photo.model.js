@@ -20,14 +20,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    rating: {
-      type: Number,
-      required: false,
-    },
-    review: {
-        type: String,
-        required: false,
-      },
     imageUrl: {
         type: String,
         required: true,
