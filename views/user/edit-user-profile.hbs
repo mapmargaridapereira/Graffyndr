@@ -1,0 +1,7 @@
+<h2>Edit Profile</h2>
+ <form action="/edit-user-profile/{{userInSession._id}}" method="post" enctype="multipart/form-data">
+    <label>Username: <input type="text" name="username" value="{{userInSession.username}}"></label>
+    <label>About:<textarea name="about" cols="30" rows="4"></textarea></label>
+    <label>Profile picture:<input type="file" name="imageUrl" value="{{userInSession.imageUrl}}"/></label>
+    <button type="submit">Submit</button>
+    </form>
