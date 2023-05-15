@@ -22,7 +22,7 @@ const storage = new CloudinaryStorage({
     cloudinary, 
     params: {
         allowed_formats: ['jpg', 'png', 'jpeg'], 
-        folder: 'movie-project' // store inside a folder 'movie-project' on Cloudinary
+        folder: 'lisbon-street-art' // store inside a folder 'movie-project' on Cloudinary
     }
 });
 

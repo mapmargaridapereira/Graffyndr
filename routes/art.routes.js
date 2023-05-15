@@ -14,16 +14,16 @@ router.get('/photos/submit', (req,res)=>{
 // POST route to save a new photo to the database in the photos collection
 router.post('/photos/submit', fileUploader.single("imageUrl"), (req,res)=>{
 
-   const {title, author, description, location, imageUrl} = req.body;
+   const {title, author, description, location} = req.body;
 
-   if (req.file) {
+/*    if (req.file) {
     imageUrl= req.file.path
-   }
+   } */
 
    async function submitPhotoToDb(){
     try{
         // Submiting the photo to DB
-        let submittedPhoto = await Photo.create({title, author, description, location, imageUrl});
+        let submittedPhoto = await Photo.create({title, author, description, location, imageUrl: req.file.path});
         //Checking if Photo was submitted
         console.log(`New photo submitted: ${submittedPhoto.title} `);
         res.redirect('/gallery');
@@ -55,5 +55,47 @@ router.get('/gallery', (req,res)=>{
     }
     findAllPhotosFromDb();
 });
+
+// GET Route to Display a Form 
+router.get('/photos/:id/edit', (req,res)=>{
+    const {id} = req.params;
+
+    async function getEditedPhoto(){
+        try{
+            let foundPhoto = await Photo.findById(id);
+            res.render('pages/edit-photo', foundPhoto);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+
+    getEditedPhoto();
+});
+
+// POST Route to save the updated data
+router.post('/photos/:id/edit', fileUploader.single('imageUrl'), (req,res) =>{
+    const {id} = req.params; 
+
+    const {title, description, existingImage} = req.body;
+
+    let imageUrl; 
+    if(req.file){
+        imageUrl = req.file.path;
+    } else {
+        imageUrl = existingImage;
+    }
+
+    async function findPhotosAndUpdate(){
+        try{
+            let foundPhoto = await Photo.findByIdAndUpdate(id, {title, description, imageUrl}, {new: true});
+            res.redirect('/gallery');
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    findPhotosAndUpdate();
+})
 
 module.exports = router;
