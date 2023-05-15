@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const Photo = require("../models/Photo.model");
+
+const fileUploader = require("../config/cloudinary.config");
+
 //Submit new photo to the DB
 // GET route to display the form for submission
 router.get('/photos/submit', (req,res)=>{
@@ -8,16 +12,18 @@ router.get('/photos/submit', (req,res)=>{
 });
 
 // POST route to save a new photo to the database in the photos collection
-router.post('/photos/submit', fileUploader.single("art-photo-image"), (req,res)=>{
-   //console.log(req.body); 
+router.post('/photos/submit', fileUploader.single("imageUrl"), (req,res)=>{
 
-   // destructuring the req.body object
-   const {title, author, description, location, rating} = req.body;
+   const {title, author, description, location, imageUrl} = req.body;
+
+   if (req.file) {
+    imageUrl= req.file.path
+   }
 
    async function submitPhotoToDb(){
     try{
         // Submiting the photo to DB
-        let submittedPhoto = await Photo.create({title, author, description, location, rating, imageUrl: req.file.path});
+        let submittedPhoto = await Photo.create({title, author, description, location, imageUrl});
         //Checking if Photo was submitted
         console.log(`New photo submitted: ${submittedPhoto.title} `);
         res.redirect('/gallery');
@@ -49,3 +55,5 @@ router.get('/gallery', (req,res)=>{
     }
     findAllPhotosFromDb();
 });
+
+module.exports = router;

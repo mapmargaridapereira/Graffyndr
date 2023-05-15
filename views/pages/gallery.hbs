@@ -1,9 +1,10 @@
 <h1>Gallery</h1>
 
-{{#each photos}}
+{{#each gallery}}
 <div>
     <h3>{{title}}</h3>
     <p>By: {{author}}</p>
+    <img src="{{imageUrl}}" alt="{{title}}">
 {{!--     <a href="/gallery/{{_id}}">See details</a> <!-- point to details page --> --}}
 {{!--     <a href="/books/{{_id}}/edit">Edit</a> --}}
 {{!--     <form action="/gallery/{{_id}}/delete" method="post"> --}}
