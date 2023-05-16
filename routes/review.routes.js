@@ -26,7 +26,7 @@ router.post('/review/create/:id', (req,res)=>{
             // Add the Review to the User
             const userUpdate = await User.findByIdAndUpdate(author, {$push: {reviews: newReview._id}} );
 
-            res.redirect(/books/${id});
+           /* res.redirect(/books/${id}); */
         }
         catch(error){
             console.log(error);
