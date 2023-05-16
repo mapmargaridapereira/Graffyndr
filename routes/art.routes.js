@@ -13,43 +13,60 @@ router.get("/photos/submit", isLoggedIn, (req, res) => {
 });
 
 // POST route to save a new photo to the database in the photos collection
-router.post("/photos/submit", isLoggedIn, fileUploader.single("imageUrl"), (req, res) => {
-  const { title, author, description, location } = req.body;
+router.post(
+  "/photos/submit",
+  isLoggedIn,
+  fileUploader.single("imageUrl"),
+  (req, res) => {
+    const { title, author, description, location } = req.body;
 
-  /*    if (req.file) {
+    /*    if (req.file) {
     imageUrl= req.file.path
    } */
 
-  async function submitPhotoToDb() {
-    try {
-      // Submiting the photo to DB
-      let submittedPhoto = await Photo.create({
-        title,
-        author,
-        description,
-        location,
-        imageUrl: req.file.path,
-      });
-      //Checking if Photo was submitted
-/*       console.log(`New photo submitted: ${submittedPhoto.title} `); */
-      res.redirect("/gallery");
-    } catch (error) {
-      console.log(error);
+    async function submitPhotoToDb() {
+      try {
+        // Submiting the photo to DB
+        let submittedPhoto = await Photo.create({
+          title,
+          author,
+          description,
+          location,
+          imageUrl: req.file.path,
+        });
+        //Checking if Photo was submitted
+        /*       console.log(`New photo submitted: ${submittedPhoto.title} `); */
+        res.redirect("/gallery");
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
 
-  submitPhotoToDb();
-});
+    submitPhotoToDb();
+  }
+);
 
 // GET route to retrieve and display all the photos
 router.get("/gallery", (req, res) => {
   async function findAllPhotosFromDb() {
     try {
       // Find all the photos inside the collection
-      let allPhotosFromDb = await Photo.find();
+      let allPhotosFromDb = await Photo.find().populate("reviews");
+
+      let ratingAverage = 0;
+      let ratingLength = 0;
+      for (let i = 0; i < allPhotosFromDb.length; i++) {
+        for (let j = 0; j < allPhotosFromDb[i].reviews.length; j++) {
+          ratingAverage += allPhotosFromDb[i].reviews[j].rating;
+          ratingLength++;
+        }
+        allPhotosFromDb[i]["average"] = ratingAverage / ratingLength;
+        ratingAverage = 0;
+        ratingLength = 0;
+      }
 
       //Check if photos are being retrieved
-/*       console.log("Retrieved photos from DB:", allPhotosFromDb); */
+      /*       console.log("Retrieved photos from DB:", allPhotosFromDb); */
 
       //Render the photos in the DB to view
       res.render("pages/gallery.hbs", { gallery: allPhotosFromDb });
@@ -66,7 +83,12 @@ router.get("/gallery/:photoId", (req, res) => {
 
   async function findPhotoFromDb() {
     try {
-      let foundPhoto = await Photo.findById(photoId);
+      let foundPhoto = await Photo.findById(photoId).populate({
+        path: "reviews",
+        populate: {
+          path: "author",
+        },
+      });
       res.render("pages/photo-details.hbs", { photo: foundPhoto });
     } catch (error) {
       console.log(error);
@@ -93,7 +115,8 @@ router.get("/gallery/:id/edit", isLoggedIn, (req, res) => {
 
 // POST Route to save the updated data
 router.post(
-  "/gallery/:id/edit", isLoggedIn,
+  "/gallery/:id/edit",
+  isLoggedIn,
   fileUploader.single("gallery-image"),
   (req, res) => {
     const { id } = req.params;
@@ -138,21 +161,20 @@ router.post(
   deleteAPhotoFromDb();
 });*/
 
-router.post('/photo/:id/delete', isLoggedIn, (req, res)=>{
-  const {id} = req.params; 
+router.post("/photo/:id/delete", isLoggedIn, (req, res) => {
+  const { id } = req.params;
 
-  async function deletePhotoInDb(){
-      try{
-          const removedPhoto = await Photo.findByIdAndRemove(id);
-          res.redirect('/user-profile');
-      }
-      catch(error){
-          console.log(error)
-      }
+  async function deletePhotoInDb() {
+    try {
+      const removedPhoto = await Photo.findByIdAndRemove(id);
+      res.redirect("/user-profile");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   deletePhotoInDb();
-})
+});
 
 router.get("/create-your-route", isLoggedIn, (req, res) => {
   res.render("pages/create-your-route.hbs");

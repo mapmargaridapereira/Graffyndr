@@ -21,9 +21,15 @@ const userSchema = new Schema(
       required: true,
     },
     imageUrl: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
+    },
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
       },
+    ],
   },
   {
     // this second object adds extra properties: createdAt and updatedAt

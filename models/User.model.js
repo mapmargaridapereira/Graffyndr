@@ -28,10 +28,10 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
-    reviews: {
+    reviews: [{
       type: Schema.Types.ObjectId, 
       ref: 'Review'
-  }
+  }]
     
   },
   {
