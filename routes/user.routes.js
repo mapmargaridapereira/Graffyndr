@@ -51,7 +51,7 @@ router.post('/edit-user-profile/:id',isLoggedIn,fileUploader.single("imageUrl"),
 });
 
 // GET route to retrieve and display all the users
-router.get('/community', (req,res)=>{
+router.get('/community', isLoggedIn, (req,res)=>{
     async function findAllUsersFromDb(){
       try{
           let allUsersFromDb = await User.find();

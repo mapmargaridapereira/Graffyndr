@@ -4,15 +4,16 @@ const router = express.Router();
 const Photo = require("../models/Photo.model");
 
 const fileUploader = require("../config/cloudinary.config");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 //Submit new photo to the DB
 // GET route to display the form for submission
-router.get("/photos/submit", (req, res) => {
+router.get("/photos/submit", isLoggedIn, (req, res) => {
   res.render("pages/submit-photo.hbs");
 });
 
 // POST route to save a new photo to the database in the photos collection
-router.post("/photos/submit", fileUploader.single("imageUrl"), (req, res) => {
+router.post("/photos/submit", isLoggedIn, fileUploader.single("imageUrl"), (req, res) => {
   const { title, author, description, location } = req.body;
 
   /*    if (req.file) {
@@ -75,7 +76,7 @@ router.get("/gallery/:photoId", (req, res) => {
 });
 
 ////// GET Route to Display a Form To EDIT
-router.get("/gallery/:id/edit", (req, res) => {
+router.get("/gallery/:id/edit", isLoggedIn, (req, res) => {
   const { id } = req.params;
 
   async function getEditedPhoto() {
@@ -92,7 +93,7 @@ router.get("/gallery/:id/edit", (req, res) => {
 
 // POST Route to save the updated data
 router.post(
-  "/gallery/:id/edit",
+  "/gallery/:id/edit", isLoggedIn,
   fileUploader.single("gallery-image"),
   (req, res) => {
     const { id } = req.params;
@@ -137,7 +138,7 @@ router.post(
   deleteAPhotoFromDb();
 });*/
 
-router.post('/photo/:id/delete', (req, res)=>{
+router.post('/photo/:id/delete', isLoggedIn, (req, res)=>{
   const {id} = req.params; 
 
   async function deletePhotoInDb(){
@@ -153,7 +154,7 @@ router.post('/photo/:id/delete', (req, res)=>{
   deletePhotoInDb();
 })
 
-router.get("/create-your-route", (req, res) => {
+router.get("/create-your-route", isLoggedIn, (req, res) => {
   res.render("pages/create-your-route.hbs");
 });
 
