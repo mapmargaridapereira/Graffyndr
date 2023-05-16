@@ -1,19 +1,17 @@
 <h1>Gallery</h1>
 
 {{#each gallery}}
-<div>
-    <img src="../../public/images/1-starRate.png">
+<div class="container-fluid text-center">
+    <img style="width: 4rem" src="/images/1-starRate.png">
     <h3>{{title}}</h3>
     <p>By: {{author}}</p>
     
-    <p>Rating:</p> <img src="../../public/images/1-starRate.png"></img><p>{{average}}</p>
+    <p>Rating:</p> <img style="width: 4rem" src="/images/1-starRate.png"></img><p>{{average}}</p>
     
-    <img src="{{imageUrl}}" alt="{{title}}">
+<div class="container-fluid text-center"><img style="width:20rem" src="{{imageUrl}}" alt="{{title}}">
+    <br>
 <a href="/gallery/{{_id}}">See details</a>
 <a href="/gallery/{{_id}}/edit">Edit</a>
-
-{{!--     <form action="/gallery/{{_id}}/delete" method="post"> --}}
-{{!--         <button type="submit">Delete</button> --}}
-{{!--     </form>  --}}
+</div>   
 </div>
 {{/each}}

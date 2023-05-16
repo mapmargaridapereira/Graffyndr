@@ -2,10 +2,11 @@
 <h2>Welcome, {{userInSession.username}}</h2>
 <p>This is your profile!</p>
 <h3>Account Info</h3>
-<img src="{{userInSession.imageUrl}}">
+<img style="width: 4rem" src="{{userInSession.imageUrl}}">
 <p>{{userInSession.username}}</p>
 <p>{{userInSession.email}}</p>
 <p>{{userInSession.about}}</p>
+<p>{{userInSession.favPhoto}}</p>
 <button>
     <a href="/edit-user-profile">Edit profile</a>
 </button>

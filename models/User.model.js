@@ -31,7 +31,12 @@ const userSchema = new Schema(
     reviews: [{
       type: Schema.Types.ObjectId, 
       ref: 'Review'
-  }]
+  }],
+  favPhoto: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Photo'
+  }],
     
   },
   {

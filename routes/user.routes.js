@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require("../models/User.model");
+const Photo = require("../models/Photo.model");
 
 const fileUploader = require("../config/cloudinary.config");
 
@@ -28,6 +29,40 @@ router.get('/edit-user-profile/',isLoggedIn, (req,res)=>{
     }
 
     getUserInfo();
+});
+
+//Add photo to favorites
+router.post('/gallery/addFavs/:id', isLoggedIn, async (req, res, next) => {
+    
+    const { id } = req.params;
+    const currentUser = req.session.currentUser._id;
+
+    try {
+        const favouritePhoto = await User.findByIdAndUpdate(currentUser, { $push: { favPhoto: id }});
+
+        res.redirect(`/user-profile`);
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+
+router.post('/gallery/removeFavs/:id', isLoggedIn, async (req, res, next) => {
+    
+    const { id } = req.params;
+    const currentUser = req.session.currentUser._id;
+
+    try {
+        const favouritePhoto = await User.findByIdAndUpdate(currentUser, { $pull: { favPhoto: id }});
+        
+        res.redirect(`/user-profile`);
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
 });
 
 // Submit the edited user
