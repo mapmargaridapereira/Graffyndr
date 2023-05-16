@@ -6,11 +6,23 @@
 
 <!-- title: author: description: location: rating: review:  imageUrl: -->
 
-<a href="/gallery">Back</a>
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!-- Review Section -->
 <h4>Leave a Review!</h4>
+
+{{#each photo.reviews}}
+  <div>
+    <!-- Actually displaying the review -->
+    <span>By: {{author.username}}</span><br />
+     <p>Rating:{{rating}}</p><br/>
+    <p>Review: {{content}}</p>
+    <!-- Deleting the Review -->
+    <form action="/review/delete/{{_id}}" method="post">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+{{/each}}
+
 <!-- Form to Create a Review -->
 <form action="/review/create/{{photo._id}}" method="post">
   <label>Rating:<input type="number" name="rating" min="1" max="10" /></label>
@@ -23,15 +35,5 @@
 <br />
 
 <!-- Display all the Reviews of the Review that we're seeing -->
-{{#each photo.reviews}}
-  <div>
-    <!-- Actually displaying the review -->
-    <p><span>By {{author.username}}</span>: {{rating}} {{content}}</p>
-    <!-- Deleting the Review -->
-    <form action="/review/delete/{{_id}}" method="post">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
-{{/each}}
 
 <a href="/gallery">Back</a>

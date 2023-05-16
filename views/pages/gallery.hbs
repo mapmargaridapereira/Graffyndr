@@ -2,9 +2,12 @@
 
 {{#each gallery}}
 <div>
+    <img src="../../public/images/1-starRate.png">
     <h3>{{title}}</h3>
     <p>By: {{author}}</p>
-    <p>Rating: {{average}}</p>
+    
+    <p>Rating:</p> <img src="../../public/images/1-starRate.png"></img><p>{{average}}</p>
+    
     <img src="{{imageUrl}}" alt="{{title}}">
 <a href="/gallery/{{_id}}">See details</a>
 <a href="/gallery/{{_id}}/edit">Edit</a>
