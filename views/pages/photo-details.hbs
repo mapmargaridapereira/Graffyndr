@@ -10,14 +10,10 @@
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!-- Review Section -->
-<h4>Leave a Review!</h4>
-<!-- Form to Create a Review -->
-<form action="/review/create/{{book._id}}" method="post">
-    <select name="author">
-        {{#each users}}
-            <option value="{{_id}}">{{username}}</option>
-        {{/each}}
-    </select>
+<h4>Leave a Review!</h4> 
+<!-- Form to Create a Review --> 
+<form action="/review/create/{{photo._id}}" method="post">
+    <label>Rating:<input type="number" name="rating" min="1" max="10"/></label>
     <label for="content">Content</label>
     <textarea name="content" id="content" cols="30" rows="5"></textarea>
     <button type="submit">Create the review</button>
@@ -26,8 +22,8 @@
 
 <br>
 
-<!-- Display all the Reviews of the Book that we're seeing -->
-    {{#each book.reviews}}
+<!-- Display all the Reviews of the Review that we're seeing -->
+    {{#each gallery.reviews}}
     <div>
         <!-- Actually displaying the review -->
         <p><span>By {{author.username}}</span>: {{content}}</p>
