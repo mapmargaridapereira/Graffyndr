@@ -1,4 +1,4 @@
-h2>Edit a Photo</h2>
+<h2>Edit a Photo</h2>
 
 <form action="/gallery/{{_id}}/edit" method="post" enctype="multipart/form-data">
     <label>Title:<input type="text" name="title" value="{{title}}"/></label>
@@ -10,6 +10,14 @@ h2>Edit a Photo</h2>
           <input type="text" name="existingImage" hidden value="{{imageUrl}}">
         </label>
     <button type="submit">Save Changes</button>
+</form>
+
+<form action="/gallery/{{photo._id}}/delete" method="post">
+    <button type="submit">
+        Delete Photo
+    </button>
+</form>
+
 
 
 <!-- title: author: description: location: rating: review:  imageUrl: -->

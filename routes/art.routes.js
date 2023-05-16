@@ -30,7 +30,7 @@ router.post("/photos/submit", fileUploader.single("imageUrl"), (req, res) => {
         imageUrl: req.file.path,
       });
       //Checking if Photo was submitted
-      console.log(`New photo submitted: ${submittedPhoto.title} `);
+/*       console.log(`New photo submitted: ${submittedPhoto.title} `); */
       res.redirect("/gallery");
     } catch (error) {
       console.log(error);
@@ -48,7 +48,7 @@ router.get("/gallery", (req, res) => {
       let allPhotosFromDb = await Photo.find();
 
       //Check if photos are being retrieved
-      console.log("Retrieved photos from DB:", allPhotosFromDb);
+/*       console.log("Retrieved photos from DB:", allPhotosFromDb); */
 
       //Render the photos in the DB to view
       res.render("pages/gallery.hbs", { gallery: allPhotosFromDb });
@@ -121,5 +121,25 @@ router.post(
     findPhotosAndUpdate();
   }
 );
+
+router.post('/gallery/:id/delete', (req, res)=>{
+/*   const {photoId} = req.params;  */
+
+  async function deleteAPhotoFromDb(){
+      try{
+          let deletedPhoto = await Photo.findByIdAndDelete(id);
+          res.redirect('/gallery');
+      }
+      catch(error){
+          console.log(error);
+      }
+  }
+  deleteAPhotoFromDb();
+});
+
+
+router.get("/create-your-route", (req, res) => {
+  res.render("pages/create-your-route.hbs");
+});
 
 module.exports = router;
