@@ -122,8 +122,8 @@ router.post(
   }
 );
 
-router.post('/gallery/:id/delete', (req, res)=>{
-/*   const {photoId} = req.params;  */
+/* router.post('/gallery/:id/delete', (req, res)=>{
+/*   const {photoId} = req.params;  
 
   async function deleteAPhotoFromDb(){
       try{
@@ -135,8 +135,23 @@ router.post('/gallery/:id/delete', (req, res)=>{
       }
   }
   deleteAPhotoFromDb();
-});
+});*/
 
+router.post('/photo/:id/delete', (req, res)=>{
+  const {id} = req.params; 
+
+  async function deletePhotoInDb(){
+      try{
+          const removedPhoto = await Photo.findByIdAndRemove(id);
+          res.redirect('/user-profile');
+      }
+      catch(error){
+          console.log(error)
+      }
+  }
+
+  deletePhotoInDb();
+})
 
 router.get("/create-your-route", (req, res) => {
   res.render("pages/create-your-route.hbs");
