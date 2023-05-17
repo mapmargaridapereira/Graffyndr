@@ -61,7 +61,7 @@ router.get("/gallery", (req, res) => {
           ratingAverage += allPhotosFromDb[i].reviews[j].rating;
           ratingLength++;
         }
-        allPhotosFromDb[i]["average"] = ratingAverage / ratingLength;
+        allPhotosFromDb[i]["average"] = Math.round(ratingAverage / ratingLength);
         ratingAverage = 0;
         ratingLength = 0;
       }
