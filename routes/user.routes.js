@@ -10,8 +10,14 @@ const fileUploader = require("../config/cloudinary.config");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get('/user-profile', isLoggedIn, (req, res)=>{
-    res.render('user/user-profile.hbs', {userInSession: req.session.currentUser});
+router.get('/user-profile', isLoggedIn, async (req, res)=>{
+try {
+    const user = req.session.currentUser._id
+    let userInSession = await User.findById(user).populate('favPhoto')
+    res.render('user/user-profile.hbs', {userInSession});
+} catch (error) {
+   console.log(error) 
+}
   });
 
 // Render a form to edit a User

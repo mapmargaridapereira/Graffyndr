@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
+const Photo = require("../models/Photo.model");
 
-/* router.post("/", async (req, res) => {
-  const { id } = req.params;
-  const { title, author, description, location, existingImage } = req.body;
+/* GET home page */
+router.get("/", async (req, res, next) => {
 
   const allPhotos = await Photo.find();
   const moreReviews = allPhotos.sort(
@@ -26,4 +22,7 @@ router.get("/", (req, res, next) => {
   const new4 = latestPhotos[3];
 
   res.render("index.hbs", { top1, top2, top3, top4, new1, new2, new3, new4 });
-}); */
+}); 
+
+
+module.exports = router;
