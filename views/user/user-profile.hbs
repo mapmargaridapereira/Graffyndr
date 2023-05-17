@@ -3,10 +3,21 @@
 <p>This is your profile!</p>
 <h3>Account Info</h3>
 <img style="width: 4rem" src="{{userInSession.imageUrl}}">
+<h6>Username:</h6>
 <p>{{userInSession.username}}</p>
+<h6>Email:</h6>
 <p>{{userInSession.email}}</p>
+<h6>About:</h6>
 <p>{{userInSession.about}}</p>
-<p>{{userInSession.favPhoto}}</p>
+<h6>Favorite Photos:</h6>
+ <ul>
+        {{#each userInSession.favPhoto}}
+      <li>{{title}}</li>
+        <img style="width: 4rem" src="{{imageUrl}}">
+        {{/each}}
+  </ul>
+<br>
+<br>
 <button>
     <a href="/edit-user-profile">Edit profile</a>
 </button>
