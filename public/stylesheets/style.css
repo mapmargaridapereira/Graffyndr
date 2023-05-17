@@ -10,3 +10,39 @@ a {
 h1 {
   color: 15px;
 }
+
+.container-fluid{
+  width: 80%;
+
+}
+
+.navbar-bar{
+  align-items: end;
+  justify-content: end;
+  display: flex;
+  flex-direction: end;
+}
+
+
+.navbar-brand{
+  font-size: 3rem;
+  font-weight: bolder
+}
+
+.navbar-nav {
+  margin-left: 20px;
+  color: #ed564b;
+}
+
+.nav-link :hover {
+
+ color: #ed564b;
+}
+
+.w-100{
+filter: grayscale(100%);
+}
+
+
+
+
