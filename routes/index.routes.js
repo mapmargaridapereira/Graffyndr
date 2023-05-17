@@ -6,7 +6,10 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.post("/", async (req, res) => {
+/* router.post("/", async (req, res) => {
+  const { id } = req.params;
+  const { title, author, description, location, existingImage } = req.body;
+
   const allPhotos = await Photo.find();
   const moreReviews = allPhotos.sort(
     (a, b) => b.reviews.length - a.reviews.length
@@ -23,4 +26,4 @@ router.post("/", async (req, res) => {
   const new4 = latestPhotos[3];
 
   res.render("index.hbs", { top1, top2, top3, top4, new1, new2, new3, new4 });
-});
+}); */
