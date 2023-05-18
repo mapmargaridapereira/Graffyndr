@@ -1,45 +1,36 @@
-<img src="/images/banner1.png" width="100%"></img>
-<br>
-
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
-
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Log In</button>
-<div class="perCent">
-    <form>
-  <div class="mb-3">
-    <label for="exampleInputUser" class="form-label">User name</label>
-    <input type="email" class="form-control" id="exampleInputUser" aria-describedby="userHelp">
-    <div id="userHelp" class="form-text">Please enter you unique Username</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
+<div class="form-container">
   
-  <button type="submit" class="btn btn-primary">Log In</button>
-   </form>
+
+  <form class="total-form" action="/auth/login" method="POST">
+  <h2 class="form-title">Join Us</h2>
+    <label class="form-label"> Username:
+      <br>
+      <input class="imput-field-form" type="text" name="username" placeholder="Your username" />
+    </label>
+    <br>
+    <br>
+
+    <label class="form-label"> Email:
+      <br>
+      <input class="imput-field-form"type="email" name="email" placeholder="Your email" />
+    </label>
+    <br>
+    <br>
+
+    <label class="form-label"> Password:
+      <br>
+      <input class="imput-field-form" type="password" name="password" placeholder="Your password" />
+    </label>
+    <br>
+    <br>
+    <button class="form-button" type="submit">Log In</button>
+    </form>
+</div>
+<br>
+    <br>
+<div class="form-error-container">
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-  </form>
-  </div>
 </div>
+

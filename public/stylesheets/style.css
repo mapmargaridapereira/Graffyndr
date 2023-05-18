@@ -1,42 +1,57 @@
 body {
   
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
+  font: 14px "Lucinda Grande", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-  color: 15px;
+  color: 2rem;
 }
 
-.perCent{
-  width: 50%;
-  margin-top: 20%;
-  align-items: center;
-  justify-content: center;
+.total-form {
+  background-color: rgb(240, 240, 240);
+  padding: 20px 5%;
+  border-radius: 10px;
+}
+
+.form-container{
+  width: 100%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
+ 
 }
 
-.nb3{
+.form-title{
+  font-weight: bolder;
+  padding-top: 10px;
+  padding-bottom: 5px;
+   color: rgb(61, 61, 61);
+}
+
+.imput-field-form{
+  border-radius: 5px;
+  border-color: rgb(138, 43, 226);
+  border: #7e7e7e solid 2px;
+  padding: 10px;
+  width: 200px
+}
+
+.form-button{
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0px;
+  color: white;
+  font-weight: bolder;
+  background-color: rgb(138, 43, 226);
+}
+
+.form-error-container{
   width: 100%;
-}
-
-
-.navbar-bar{
-  align-items: end;
-  justify-content: end;
   display: flex;
-  flex-direction: end;
-}
-
-
-.navbar-brand{
-  font-size: 3rem;
-  font-weight: bolder
+  justify-content: center;
+  text-align: center;
 }
 
 .navbar-nav {
@@ -49,54 +64,12 @@ h1 {
  color: #7e7e7e;
 }
 
-.w-100{
-filter: grayscale(100%);
-}
-
-
-
 .read-more{
   font-weight: bold;
   padding: 5px 25px;
   color: white;
   background-color: rgb(126, 126, 126, 0.4);
   border: 2px solid white;
-  
 }
 
-.h5{
-  width: 60%;
-}
 
-.icons{
-  width: 50px;
-  margin: 10px;
-}
-
-.red-block{
-  width: 100%;
-  padding: 5%;
-  background-color: #ed564b;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.disciplines{
-  width: 300px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h4{
-  color: white;
-}
-
-.descrit{
-  text-justify: center;
-  text-align: center;
-  color: white;
-}
