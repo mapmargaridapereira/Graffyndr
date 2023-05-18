@@ -1,15 +1,16 @@
 <h1 class ="gallery-title">Gallery</h1>
 
 
-<section class="section">
 
 
 
 
-<div class="each-photo">
+
+<div class="section">
 {{#each gallery}}
-    <div> <img style="width:20rem" src="{{imageUrl}}" alt="{{title}}"/> 
-    <br/>
+    <div class="each-photo"> 
+      <img style="width:20rem" src="{{imageUrl}}" alt="{{title}}"/> 
+    <hr>
     <h4>{{title}}</h4>
     <h6>By: {{author}}<h6>
     <img class="stars-image" src="/images/{{average}}-starRate.png"/>    
@@ -17,5 +18,5 @@
     </div>
 <br><br>
 {{/each}}
+<br><br>
 </div>
-</section>

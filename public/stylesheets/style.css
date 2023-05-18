@@ -1,5 +1,4 @@
 body {
-  
   font: 14px "Lucinda Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -13,7 +12,7 @@ h1 {
   border-radius: 10px;
 }
 
-.form-container{
+.form-container {
   width: 100%;
   margin-top: 5%;
   display: flex;
@@ -21,7 +20,7 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-.form-container2{
+.form-container2 {
   margin-top: 0%;
   width: 100%;
   display: flex;
@@ -30,22 +29,22 @@ h1 {
   justify-content: center;
 }
 
-.form-title{
+.form-title {
   font-weight: bolder;
   padding-top: 10px;
   padding-bottom: 2px;
-   color: rgb(124, 124, 124);
+  color: rgb(124, 124, 124);
 }
 
-.imput-field-form{
+.imput-field-form {
   border-radius: 5px;
   border-color: rgb(138, 43, 226);
   border: #7e7e7e solid 2px;
   padding: 10px;
-  width: 200px
+  width: 200px;
 }
 
-.form-button{
+.form-button {
   padding: 10px 20px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -55,7 +54,7 @@ h1 {
   background-color: rgb(138, 43, 226);
 }
 
-.form-error-container{
+.form-error-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -69,10 +68,10 @@ h1 {
 
 .nav-link {
   font-weight: bolder;
- color: #7e7e7e;
+  color: #7e7e7e;
 }
 
-.read-more{
+.read-more {
   font-weight: bold;
   padding: 5px 25px;
   color: white;
@@ -80,38 +79,40 @@ h1 {
   border: 2px solid white;
 }
 
-.link-button{
+.link-button {
   padding: 5px 10px;
   margin-bottom: 5px;
   border-radius: 5px;
   border: 0px;
   color: white;
   background-color: rgb(138, 43, 226);
+  text-decoration: none;
 }
 
-.stars-image{
- width: 40%;
+.stars-image {
+  width: 40%;
 }
 
-.section{
+.section {
   width: 80%;
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
-  align-items:left;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .each-photo-div {
-  width: 20%;
+  width: 15%;
 }
 
-.gallery-title{
+.gallery-title {
   font-weight: bolder;
   padding: 30px 25px 10px 25px;
-   color: rgb(124, 124, 124);
+  color: rgb(124, 124, 124);
 }
 
-.photo-details-container{
+.photo-details-container {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -119,10 +120,30 @@ h1 {
   justify-content: center;
 }
 
-
-.a-link{
+.a-link {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
+.all-radios {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: space-center;
+  justify-content: space-around;
+}
 
+.single-radio {
+  margin: 0px 15px 0px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-form-route {
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  padding: 20px 5%;
+  border-radius: 10px;
+}

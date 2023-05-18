@@ -1,24 +1,58 @@
 
-<br>
+<div class="form-container photo">
 
-<h3>Create Your WallkAround Route</h2>
-<form action="/create-your-route" method="post" target="_blank">
-<h3>Not sure where to go? Try out 2 of our suggestions, you choose how:</h3>
-<input type="radio" id="itenerary" value="random" name="itenerary" >
-<label for="random">Random</label><br>
-<input type="radio" id="itenerary" value="fav" name="itenerary" >
+<form class="total-form-route" action="/create-your-route" method="post" target="_blank">
+<h3 class="form-title">Create Your<br>WallkAround Route</h3><br><br>
+<h5>Not sure where to go?<br>
+    Try out 2 of our suggestions,<br>
+    you choose how:</h5><br>
+
+<div class="all-radios">
+<div class="single-radio">
+<img src="/images/icon1.png"><br>
+<input type="radio" id="itenerary" value="random" name="itenerary" ><br>
+<label for="random">100% Random</label><br>
+</div>
+
+<div class="single-radio">
+<img src="/images/icon3.png"><br>
+<input type="radio" id="itenerary" value="fav" name="itenerary" ><br>
 <label for="fav">Your Favorites</label><br>
-<input type="radio" id="itenerary" value="rated" name="itenerary" >
-<label for="rated">Top Rated</label><br>
+</div>
 
-<h3>And how are you visiting?</h3>
-<input type="radio" id="ride" value="w" name="ride" >
-<label for="walk">I'm Walking</label><br>
-<input type="radio" id="ride" value="b" name="ride" >
-<label for="bike">I'm taking my Bicycle</label><br>
-<input type="radio" id="ride" value="r" name="ride" >
-<label for="transport">I'm taking Public Transportation</label>
+<div class="single-radio">
+<img src="/images/icon4.png"><br>
+<input type="radio" id="itenerary" value="rated" name="itenerary" ><br>
+<label for="rated">Top Rated</label><br>
+</div>
+<br><br>
+</div>
+
+
+<h5>And how are you visiting?</h5>
+<br>
+<div class="all-radios">
+<div class="single-radio">
+<img src="/images/icon6.png"><br>
+<input type="radio" id="ride" value="w" name="ride" ><br>
+<label for="walk">I'm Walking<br>!</label><br>
+</div>
+
+<div class="single-radio">
+<img src="/images/icon5.png"><br>
+<input type="radio" id="ride" value="b" name="ride" ><br>
+<label for="bike">I'm taking<br>my Bicycle</label><br>
+</div>
+
+<div class="single-radio">
+<img src="/images/icon7.png"><br>
+<input type="radio" id="ride" value="r" name="ride" ><br>
+<label for="transport">I'm taking<br>Public Transportation</label><br>
+</div>
+</div>
 <br>
 <br>
-<button type="submit">View your Route in Google Maps!</button>
+<button class ="form-button" type="submit">View your Route in Google Maps!</button>
 </form>
+</div>
+
