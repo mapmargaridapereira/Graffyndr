@@ -3,7 +3,7 @@
 <br />
 <br />
 <div
-  class="container-fluid card-body text-center max-width: 100% p-4"
+  class="container-fluid card-body text-center max-width: 100% p-4 main-div-index"
   style="font-size: 1.2rem;"
 ><span>
     Welcome to Graffyndr, the online community for street art enthusiasts in
@@ -44,7 +44,7 @@
 <div
   class="container-fluid card-body text-center max-width: 100% p-3 mb-2 text-white animated fadeIn"
   style="background-color: rgba(166,77,155,1);"
-><h2 class="text-2.5xl leading-normal text-center">LATEST PHOTOS</h2>
+><h2 class="latest-header">LATEST PHOTOS</h2>
 
   <div
     id="carouselExampleIndicators"
@@ -53,35 +53,35 @@
   >
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{new1.imageUrl}}" alt="First slide" />
+        <img class="carousel-img d-block w-100" src="{{new1.imageUrl}}" alt="First slide" />
         <div class="carousel-caption d-none d-md-block">
-          <h5>{{new1.title}}</h5>
-          <p>By: {{new1.author}}</p>
-          <p>{{new1.description}}</p>
+          <h5 class="carousel-descriptions">{{new1.title}}</h5>
+          <p class="carousel-descriptions">By: {{new1.author}}</p>
+          <p class="carousel-descriptions">{{new1.description}}</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{new2.imageUrl}}" alt="..." />
+        <img class="carousel-img d-block w-100" src="{{new2.imageUrl}}" alt="..." />
         <div class="carousel-caption d-none d-md-block">
-          <h5>{{new2.title}}</h5>
-          <p>By: {{new2.author}}</p>
-          <p>{{new2.description}}</p>
+          <h5 class="carousel-descriptions">{{new2.title}}</h5>
+          <p class="carousel-descriptions">By: {{new2.author}}</p>
+          <p class="carousel-descriptions">{{new2.description}}</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{new3.imageUrl}}" alt="..." />
+        <img class="carousel-img d-block w-100" src="{{new3.imageUrl}}" alt="..." />
         <div class="carousel-caption d-none d-md-block">
-          <h5>{{new3.title}}</h5>
-          <p>By: {{new3.author}}</p>
-          <p>{{new3.description}}</p>
+          <h5 class="carousel-descriptions">{{new3.title}}</h5>
+          <p class="carousel-descriptions">By: {{new3.author}}</p>
+          <p class="carousel-descriptions">{{new3.description}}</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{new4.imageUrl}}" alt="..." />
+        <img class="carousel-img d-block w-100" src="{{new4.imageUrl}}" alt="..." />
         <div class="carousel-caption d-none d-md-block">
-          <h5>{{new4.title}}</h5>
-          <p>By: {{new4.author}}</p>
-          <p>{{new4.description}}</p>
+          <h5 class="carousel-descriptions">{{new4.title}}</h5>
+          <p class="carousel-descriptions">By: {{new4.author}}</p>
+          <p class="carousel-descriptions">{{new4.description}}</p>
         </div>
       </div>
     </div>
@@ -109,29 +109,64 @@
 
 <div
   class="container-fluid card-body text-center max-width: 100% p-3 mb-2 bg-light text-dark animated fadeIn"
-><h2>TOP RATED PHOTOS</h2><div>
-    <img style="width: 4rem" src="{{top1.imageUrl}}" />
-    <h3>{{top1.title}}</h3>
-    <p>By: {{top1.author}}</p>
-    <p>{{top1.description}}</p>
-  </div>
-  <div>
-    <img style="width: 4rem" src="{{top2.imageUrl}}" />
-    <h3>{{top2.title}}</h3>
-    <p>By: {{top2.author}}</p>
-    <p>{{top2.description}}</p>
-  </div>
-  <div>
-    <img style="width: 4rem" src="{{top3.imageUrl}}" />
-    <h3>{{top3.title}}</h3>
-    <p>By: {{top3.author}}</p>
-    <p>{{top3.description}}</p>
-  </div>
-  <div>
-    <img style="width: 4rem" src="{{top4.imageUrl}}" />
-    <h3>{{top4.title}}</h3>
-    <p>By: {{top4.author}}</p>
-    <p>{{top4.description}}</p>
+><h2 class="toprated-header">TOP RATED PHOTOS</h2>
+<div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="carousel-img d-block w-100" src="{{top1.imageUrl}}" alt="First slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="carousel-descriptions">{{top1.title}}</h5>
+          <p class="carousel-descriptions">By: {{top1.author}}</p>
+          <p class="carousel-descriptions">{{top1.description}}</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-img d-block w-100" src="{{top2.imageUrl}}" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="carousel-descriptions">{{top2.title}}</h5>
+          <p class="carousel-descriptions">By: {{top2.author}}</p>
+          <p class="carousel-descriptions">{{top2.description}}</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-img d-block w-100" src="{{top3.imageUrl}}" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="carousel-descriptions">{{top3.title}}</h5>
+          <p class="carousel-descriptions">By: {{top3.author}}</p>
+          <p class="carousel-descriptions">{{top3.description}}</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-img d-block w-100" src="{{top4.imageUrl}}" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="carousel-descriptions">{{top4.title}}</h5>
+          <p class="carousel-descriptions">By: {{top4.author}}</p>
+          <p class="carousel-descriptions">{{top4.description}}</p>
+        </div>
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
   </div>
 </div>
 
