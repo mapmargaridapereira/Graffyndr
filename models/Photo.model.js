@@ -6,23 +6,18 @@ const userSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
     },
     author: {
       type: String,
-      required: false,
     },
     description: {
       type: String,
-      required: true,
     },
     location: {
       type: String,
-      required: true,
     },
     imageUrl: {
       type: String,
-      required: true,
     },
     reviews: [
       {
