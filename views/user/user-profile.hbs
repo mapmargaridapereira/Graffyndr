@@ -1,7 +1,5 @@
-<img src="/images/banner1.png" width="100%"></img>
-<br>
-
-<h2>Welcome, {{userInSession.username}}</h2>
+<div class="form-container">
+<h2 class ="form-title">Welcome, {{userInSession.username}}</h2>
 <p>This is your profile!</p>
 <h3>Account Info</h3>
 <img style="width: 4rem" src="{{userInSession.imageUrl}}">
@@ -20,9 +18,10 @@
   </ul>
 <br>
 <br>
-<button>
-    <a href="/edit-user-profile">Edit profile</a>
+<button class ="form-button">
+    <a class="a-link" href="/edit-user-profile">Edit profile</a>
 </button>
-<button>
-    <a href="/user-profile">Reload the page</a>
+<button class ="form-button">
+    <a class="a-link" href="/user-profile">Reload the page</a>
 </button>
+</div>
