@@ -1,25 +1,32 @@
-<img src="/images/banner3.png" width="100%"></img>
 <br>
-
-<h2>Edit a Photo</h2>
-
-<form action="/gallery/{{_id}}/edit" method="post" enctype="multipart/form-data">
-    <label>Title:<input type="text" name="title" value="{{title}}"/></label>
-    <label>Author:<input type="text" name="author" value="{{author}}"/></label>
-    <label>Description:<textarea name="description" cols="30" rows="4">{{description}}</textarea></label>
-    <label>Location:<input type="text" name="location"  value="{{location}}"/></label>
-    <label>Image:
-          <input type="file" name="gallery-image" class="form-control-file" />
-          <input type="text" name="existingImage" hidden value="{{imageUrl}}">
-        </label>
-    <button type="submit">Save Changes</button>
-</form>
-
-<form action="/photo/{{_id}}/delete/" method="post">
-    <button type="submit">
+<div class ="edit-photo-container">
+<form  class ="total-form" action="/gallery/{{_id}}/edit" method="post" enctype="multipart/form-data">
+<h2 class="form-title" >Edit a Photo</h2>
+<br>
+    <label class="form-label">Title:
+        <br><input class ="imput-field-form" type="text" name="title" value="{{title}}"/></label><br>
+    <label class="form-label">Author:
+        <br><input class ="imput-field-form" type="text" name="author" value="{{author}}"/></label><br>
+    <label class="form-label">Description:
+        <br><textarea class ="imput-field-form" name="description" cols="30" rows="4">{{description}}</textarea></label><br>
+    <label class="form-label">Location:
+        <br><input class ="imput-field-form" type="text" name="location"  value="{{location}}"/></label><br>
+     <label class="form-label">Image:
+       
+          <br><input class ="imput-field-form" type="file" name="gallery-image" class="form-control-file" />
+          <input class ="imput-field-form" type="text" name="existingImage" hidden value="{{imageUrl}}">
+        </label> <br><br>
+    <button class ="form-button" type="submit">Save Changes</button>
+</form><br> <br>
+</div>
+<div class ="form-container2">
+ <form class = action="/photo/{{_id}}/delete/" method="post">
+    <button class ="form-button" type="submit">
         Delete Photo
     </button>
 </form>
+</div>
+
 
 
   <!-- title: author: description: location: rating: review:  imageUrl: -->  

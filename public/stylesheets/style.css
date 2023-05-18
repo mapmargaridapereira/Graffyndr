@@ -20,14 +20,21 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
+}
+.form-container2{
+  margin-top: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-title{
   font-weight: bolder;
   padding-top: 10px;
-  padding-bottom: 5px;
-   color: rgb(61, 61, 61);
+  padding-bottom: 2px;
+   color: rgb(124, 124, 124);
 }
 
 .imput-field-form{
@@ -40,6 +47,7 @@ h1 {
 
 .form-button{
   padding: 10px 20px;
+  margin-bottom: 10px;
   border-radius: 10px;
   border: 0px;
   color: white;
@@ -71,5 +79,45 @@ h1 {
   background-color: rgb(126, 126, 126, 0.4);
   border: 2px solid white;
 }
+
+.link-button{
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  background-color: rgb(138, 43, 226);
+}
+
+.stars-image{
+ width: 40%;
+}
+
+.section{
+  width: 80%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items:left;
+  justify-content: center;
+}
+
+.each-photo-div {
+  width: 20%;
+}
+
+.gallery-title{
+  font-weight: bolder;
+  padding: 30px 25px 10px 25px;
+   color: rgb(124, 124, 124);
+}
+
+.photo-details-container{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 
 

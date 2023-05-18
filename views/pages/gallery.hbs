@@ -1,20 +1,21 @@
-<h1>Gallery</h1>
+<h1 class ="gallery-title">Gallery</h1>
 
+
+<section class="section">
+
+
+
+
+<div class="each-photo">
 {{#each gallery}}
-  <div class="container-fluid text-center">
-    <h3>{{title}}</h3>
-    <p>By: {{author}}</p>
-
-    <p>Rating:</p>
-    <img src="/images/{{average}}-starRate.png" />
-    <div class="container-fluid text-center"><img
-        style="width:20rem"
-        src="{{imageUrl}}"
-        alt="{{title}}"
-      />
-      <br />
-      <a href="/gallery/{{_id}}">See details</a>
-      <a href="/gallery/{{_id}}/edit">Edit</a>
+    <div> <img style="width:20rem" src="{{imageUrl}}" alt="{{title}}"/> 
+    <br/>
+    <h4>{{title}}</h4>
+    <h6>By: {{author}}<h6>
+    <img class="stars-image" src="/images/{{average}}-starRate.png"/>    
+    <a class ="link-button" href="/gallery/{{_id}}">See details</a> <a class ="link-button" href="/gallery/{{_id}}/edit">Edit</a>
     </div>
-  </div>
+<br><br>
 {{/each}}
+</div>
+</section>
