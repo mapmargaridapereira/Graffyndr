@@ -61,6 +61,8 @@ router.get("/gallery", (req, res) => {
           ratingAverage += allPhotosFromDb[i].reviews[j].rating;
           ratingLength++;
         }
+
+        
         allPhotosFromDb[i]["average"] = Math.round(ratingAverage / ratingLength);
         ratingAverage = 0;
         ratingLength = 0;
@@ -70,7 +72,7 @@ router.get("/gallery", (req, res) => {
       /*       console.log("Retrieved photos from DB:", allPhotosFromDb); */
 
       //Render the photos in the DB to view
-      res.render("pages/gallery.hbs", { gallery: allPhotosFromDb });
+      res.render("pages/gallery.hbs", { gallery: allPhotosFromDb});
     } catch (error) {
       console.log(error);
     }
@@ -178,10 +180,7 @@ router.post("/photo/:id/delete", isLoggedIn, (req, res) => {
 });
 
 router.get("/create-your-route", isLoggedIn, (req, res) => {
-  const userRoute =
-    "pb=!1m35!1m12!1m3!1d49801.45865863744!2d-9.232864791384559!3d38.72719443175542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m20!3e2!4m0!4m5!1s0xd1932d9d7cb7fd5%3A0x2a0c9acdae587c84!2sR.%20Francisco%20Ba%C3%ADa%202%2C%201500-580%20Lisboa!3m2!1d38.754888!2d-9.178765499999999!4m5!1s0xd1933436c95ec77%3A0xddbc780aeed7eeb1!2sCampo%20de%20Ourique%2C%20Lisboa!3m2!1d38.721322!2d-9.1672104!4m5!1s0xd1934a035e5e1a3%3A0x1db9559a3a7b956f!2sTapada%20das%20Necessidades%2C%20Cal%C3%A7ada%20Necessidades%2C%20Lisboa!3m2!1d38.7090051!2d-9.169833299999999!5e0!3m2!1spt-PT!2spt!4v1684239221642!5m2!1spt-PT!2spt";
-
-  res.render("pages/create-your-route.hbs", {userRoute});
+  res.render("pages/create-your-route.hbs");
 });
 
 router.post("/create-your-route", isLoggedIn, async (req, res) => {
@@ -211,17 +210,19 @@ router.post("/create-your-route", isLoggedIn, async (req, res) => {
     locations = sortedPhotos;
   }
 
-  const userRoute = `saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}`;
+  /* const userRoute = `saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}`;
 
-  res.render("pages/create-your-route.hbs", {userRoute});
+  res.render("pages/create-your-route.hbs", {userRoute}); */
 
-  /*   res.redirect(
-    `https://www.google.com/maps/dir//${locations[0].location}+Lisboa/${locations[1].location}+Lisboa/${locations[2].location}+Lisboa/${locations[3].location}+Lisboa/${locations[4].location}+Lisboa/dirflg/${ride}`
+     res.redirect(
+      `https://www.google.com/maps/preview?saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}` 
   ); 
-  
-    `https://www.google.com/maps/preview?saddr=${locations[0].location}&addr=${locations[1].location}&addr=${locations[2].location}&addr=${locations[3].location}&daddr=${locations[4].location}&dirflg=${ride}`
+  /*
+    `https://www.google.com/maps/preview?saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}`
   
   */
 });
 
 module.exports = router;
+
+
