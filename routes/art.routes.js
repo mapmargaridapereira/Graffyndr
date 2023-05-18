@@ -218,7 +218,7 @@ router.post("/create-your-route", isLoggedIn, async (req, res) => {
       `https://www.google.com/maps/preview?saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}` 
   ); 
   /*
-    `https://www.google.com/maps/preview?saddr=${locations[0].location}&daddr=${locations[1].location}&dirflg=${ride}`
+    `https://www.google.com/maps/dir//${locations[0].location}/${locations[1].location}//${locations[2].location}/${locations[3].location}/${locations[4].location}`
   
   */
 });
