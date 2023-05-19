@@ -1,9 +1,9 @@
 <h1 class ="gallery-title">Gallery</h1>
 
-<div class="grid gap-1 section">
+<div class="grid gap-3 section">
+ 
 {{#each gallery}}
     <div class="each-photo"> 
-      <br>
       <img class="rounded-3" style="width:20rem" src="{{imageUrl}}" alt="{{title}}"/> 
     <hr>
     <h4>{{title}}</h4>
@@ -11,9 +11,9 @@
     <h6>By: {{author}}</h6>
     <img class="stars-image" src="/images/{{average}}-starRate.png"/>    
     <a class ="link-button" href="/gallery/{{_id}}">See details</a> <a class ="link-button" href="/gallery/{{_id}}/edit">Edit</a>
+    <a class="maps" href="https://www.google.com/maps/dir//{{location}}+lisboa" alt="See location on Google Maps" target="_blank"><img style="width: 15px" src="images/location-icon.png"></a>
+    
     </div>
-<br><br>
 {{/each}}
-<br><br>
-<br><br>
+<hr><br>
 </div>

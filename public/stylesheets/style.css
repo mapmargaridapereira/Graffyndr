@@ -111,10 +111,6 @@ h1 {
   text-decoration: none;
 }
 
-.stars-image {
-  width: 40%;
-}
-
 .section {
   width: 100%;
   display: flex;
@@ -122,6 +118,7 @@ h1 {
   align-items: top;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .each-photo-div {
@@ -281,10 +278,7 @@ h1 {
   color: rgb(112, 36, 184);
 }
 
-.maps {
-  width: 50%;
-  margin-left: 2px;
-}
+
 
 .same-line {
   width: 100%;
@@ -293,4 +287,18 @@ h1 {
   align-items: top;
   justify-content:left;
   
+}
+
+.stars-image {
+  width: 40%;
+}
+
+.maps {
+  width: 20%;
+  padding-bottom: 20px;
+  margin: 0px 2px 0px 2px;
+}
+
+.main-span-text {
+  font-size: 1.3rem;
 }
