@@ -1,14 +1,15 @@
 <br>
-
+<div class="section">
 <div class="photo-details-container">
 
 <h3 class ="gallery-title">Photo Details & Reviews</h3>
 <br>
-<img src="{{photo.imageUrl}}" alt="{{photo.title}}" />
-<h4>{{photo.title}}</h4>
-<h6>By: {{photo.author}}</h6><br />
-<p>Description: {{photo.description}}</p><br />
-<p>Location: {{photo.location}}</p><br />
+<img class= "rounded-4" src="{{photo.imageUrl}}" alt="{{photo.title}}" style= "width:90%"/>
+<br>
+<h4 class="bold">{{photo.title}}</h4>
+By:<h5>{{photo.author}}</h5>
+<span class="bold">Description: </span> <p>{{photo.description}}</p>
+<span class="bold">Location: </span><p>{{photo.location}}</p>
 
           
       {{#if isFav}}
@@ -27,7 +28,7 @@
 <h4>Leave a Review!</h4>
 <!-- Form to Create a Review -->
 <form class="total-form" action="/review/create/{{photo._id}}" method="post">
-  <label class="form-label">Rating:
+  <label class="form-label"><p class="bold"></p>Rating:
     <br><input class ="imput-field-form" type="number" name="rating" min="1" max="10" /></label>
   <br>
   <label class="form-label" for="content">Content: </label>
@@ -39,16 +40,16 @@
 <!-- End of the Form to Create a Review -->
 <!-- Review Section -->
 <br>
-<h4>Last Reviews!</h4>
+<h4 class="bold">Last Reviews!</h4>
 {{#each photo.reviews}}
-  <div>
+  <div class="width-percentage">
     <!-- Actually displaying the review -->
-    <span>By: {{author.username}}</span><br />
-     <p>Rating:{{rating}}</p>
-    <p>Review: {{content}}</p>
+    <span class="bold">By: </span> <span>{{author.username}}</span><br/>
+     <span class="bold">Rating: </span><span>{{rating}}</span><br/>
+    <span class="bold">Review: </span><span>{{content}}</span><br/><br/>
     <!-- Deleting the Review -->
     <form action="/review/delete/{{_id}}" method="post">
-      <button class ="link-button" type="submit">Delete</button>
+      <button class ="link-button" type="submit">Delete</button><br />
     </form>
   </div>
 {{/each}}
@@ -57,5 +58,7 @@
 <!-- Display all the Reviews of the Review that we're seeing -->
 
 <a class ="link-button" href="/gallery">Back</a>
+
+</div>
 
 </div>

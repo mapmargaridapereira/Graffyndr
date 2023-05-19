@@ -6,8 +6,19 @@ h1 {
   color: 2rem;
 }
 
+.dropdown-menu-dark{
+  background-color: rgb(138, 138, 138);
+  color: rgb(254, 254, 254);
+}
+
+.dropdown-item{
+  font-size: 0.85rem;
+  color: white;
+}
+
+
 .total-form {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240, 0.85);
   padding: 20px 5%;
   border-radius: 10px;
 }
@@ -75,7 +86,7 @@ h1 {
   font-weight: bold;
   padding: 5px 25px;
   color: white;
-  background-color: rgb(126, 126, 126, 0.4);
+  background-color: rgb(126, 126, 126);
   border: 2px solid white;
 }
 
@@ -89,26 +100,45 @@ h1 {
   text-decoration: none;
 }
 
+.link-button-invert {
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 0px;
+  font-weight: bold;
+  color: rgb(138, 43, 226);
+  background-color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
 .stars-image {
   width: 40%;
 }
 
 .section {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .each-photo-div {
-  width: 15%;
+  padding: 10px;
+  margin-left: 20px;
+  width: 10%;
 }
+
+.each-photo-home {
+  margin: 10px;
+  width: 20%;
+}
+
 
 .gallery-title {
   font-weight: bolder;
-  padding: 30px 25px 10px 25px;
+  padding: 30px 25px 10px 35px;
   color: rgb(124, 124, 124);
 }
 
@@ -121,7 +151,7 @@ h1 {
 }
 
 .a-link {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255, 0.85);
   text-decoration: none;
 }
 
@@ -143,7 +173,124 @@ h1 {
 
 .total-form-route {
   text-align: center;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240, 0.85);
   padding: 20px 5%;
   border-radius: 10px;
+}
+
+.edit-photo-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-section1 {
+  background-image: url('/images/wall-papper1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+.fullscreen-section2 {
+  background-image: url('/images/wall-papper2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 140vh;
+  width: 100%;
+}
+
+.fullscreen-section3 {
+  background-image: url('/images/wall-papper3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 130vh;
+  width: 100%;
+}
+
+.fullscreen-section4 {
+  background-image: url('/images/wall-papper8.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 140vh;
+  width: 100%;
+}
+
+.fullscreen-section5 {
+  background-image: url('/images/wall-papper5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 110vh;
+  width: 100%;
+}
+
+.favs-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.width-percentage{
+  width: 20%;
+  text-align: center;
+}
+
+.total-width-percentage{
+  width: 90%;
+  text-align: center;
+}
+
+.reduce{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.section-community {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.community-names {
+  font-weight: bold;
+  color: rgb(112, 36, 184);
+}
+
+.maps {
+  width: 50%;
+  margin-left: 2px;
+}
+
+.same-line {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content:left;
+  
 }

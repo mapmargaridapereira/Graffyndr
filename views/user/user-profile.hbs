@@ -1,21 +1,22 @@
 <div class="form-container">
 <h2 class ="form-title">Welcome, {{userInSession.username}}</h2>
 <p>This is your profile!</p>
-<h3>Account Info</h3>
-<img style="width: 4rem" src="{{userInSession.imageUrl}}">
-<h6>Username:</h6>
+<h3 class="bold">Account Info</h3>
+<img class="rounded-circle" style="width: 10rem" src="{{userInSession.imageUrl}}">
+<h6 class="bold">Username:</h6>
 <p>{{userInSession.username}}</p>
-<h6>Email:</h6>
+<h6 class="bold">Email:</h6>
 <p>{{userInSession.email}}</p>
-<h6>About:</h6>
-<p>{{userInSession.about}}</p>
-<h6>Favorite Photos:</h6>
- <ul>
-        {{#each userInSession.favPhoto}}
-      <li>{{title}}</li>
-        <img style="width: 4rem" src="{{imageUrl}}">
-        {{/each}}
-  </ul>
+<h6 class="bold">About:</h6>
+<p class="width-percentage">{{userInSession.about}}</p>
+<h6 class="bold">Favorite Photos:</h6>
+<div class="favs-container">
+      {{#each userInSession.favPhoto}}
+      {{title}}
+      <img style="width: 6rem" src="{{imageUrl}}">
+      <br>
+      {{/each}}
+</div>
 <br>
 <br>
 <button class ="form-button">
@@ -25,3 +26,5 @@
     <a class="a-link" href="/user-profile">Reload the page</a>
 </button>
 </div>
+<br>
+<br>
